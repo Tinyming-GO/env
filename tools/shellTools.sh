@@ -130,8 +130,8 @@ installMain(){
 
         119)
         showDoingTask "VirtualBox"
-        wget -c -P $(pwd) http://download.virtualbox.org/virtualbox/5.1.14/virtualbox-5.1_5.1.14-112924~Ubuntu~xenial_amd64.deb -O virtualbox.deb
-        sudo dpkg -i virtualbox.deb && sudo apt-get install -fy && showResultTip "VirtualBox"
+        wget -c -P $(pwd) https://download.virtualbox.org/virtualbox/6.0.4/virtualbox-6.0_6.0.4-128413~Ubuntu~xenial_amd64.deb -O virtualbox.deb
+        sudo dpkg -i virtualbox.deb && sudo apt-get install -fy && rm -rf virtualbox.deb && showResultTip "VirtualBox"
         ;;
 
         120)
@@ -164,6 +164,12 @@ installMain(){
         showDoingTask "TeamViewer" && \
         wget -c -P $(pwd) https://download.teamviewer.com/download/teamviewer_i386.deb \
         && sudo dpkg -i teamviewer_i386.deb && sudo apt-get install -fy && showResultTip "TeamViewer"
+        ;;
+        
+        127)
+        echo "downloading vagrant ..."
+        wget -c -P $(pwd) https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_linux_amd64.zip -O vagrant.zip
+        echo "downloaded"
         ;;
 
         201)
@@ -262,6 +268,10 @@ installMain(){
         wget -c -P $(pwd) https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/android-screen-monitor/ASM_2_50.zip
         echo "downloaded"
         ;;
+        
+        311)
+        showDoingTask "meld" && sudo apt-get install meld -y && showResultTip "meld"
+        ;;
 
         401)
         showDoingTask "enca、iconv" && sudo apt-get install enca iconv -y && showResultTip "enca、iconv"
@@ -319,7 +329,7 @@ $(sudo apt-get install toilet -y >/dev/null>&1 && echo " Daily tools " | toilet 
 113➜ Audience       114➜ Gimp            115➜ Krita         116➜ gedit
 117➜ x11vnc         118➜ Shadowsocks-qt5 119➜ VirtualBox    120➜ Steam
 121➜ Transmission   122➜ ThunderBird     123➜ Okular        124➜ FocusWriter
-125➜ Typora         126➜ TeamViewer
+125➜ Typora         126➜ TeamViewer      127➜ vagrant
 $(echo " System tools " | toilet -f term -F border --gay)
 201➜ Deepin-Scrot   202➜ Albert          203➜ Guake         204➜ gnome-system-monitor
 205➜ psensor        206➜ catfish         207➜ docky         208➜ Indicator Netspeed
@@ -327,7 +337,7 @@ $(echo " System tools " | toilet -f term -F border --gay)
 $(echo " Developer tools " | toilet -f term -F border --gay)
 301➜ Jetbrains      302➜ Brackets        303➜ Sublime Text  304➜ Atom
 305➜ sqliteman      306➜ Git、GitG       307➜ monodevelop   308➜ MySQL workbench
-309➜ Genymotion     310➜ Android Screen Monitor
+309➜ Genymotion     310➜ Android Screen Monitor  311➜meld
 $(echo " Terminal tools " | toilet -f term -F border --gay)
 401➜ enca ,iconv    402➜ Figlet          403➜ oh-my-zsh     404➜ Asciinema
 405➜ Aria2          406➜ Proxychains4    407➜ tldr
